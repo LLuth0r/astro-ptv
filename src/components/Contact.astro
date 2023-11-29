@@ -3,20 +3,44 @@
     <h4>Contact Us!</h4>
   </header>
   <form>
-
+    <input type="text" placeholder="Name" required>
+    <input type="email" placeholder="E-mail" required>
+    <input class="message-box" type="text" placeholder="Message" required>
   </form>
+  <button type="submit">Submit</button>
 </section>
 
 <style>
   section {
+    background-color: white;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     margin-top: 2rem;
+    margin-bottom: 5rem;
+    border-radius: 4px;
+		box-shadow: 5px 5px 5px 1px rgba(117,117,117,0.75);
+    -webkit-box-shadow: 5px 5px 5px 1px rgba(117,117,117,0.75);
+    -moz-box-shadow: 5px 5px 5px 1px rgba(117,117,117,0.75);
   }
 
   header {
     h4 {
       font-size: 24px;
     }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+
+    input {
+      margin: 5px;
+    }
+  }
+
+  button {
+    margin-bottom: 25px;
   }
 </style>
