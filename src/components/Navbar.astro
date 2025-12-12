@@ -1,6 +1,9 @@
 <section>
   <header>
-    <h3>PTV Newsletter</h3>
+    <div>
+      <h3>PTV Newsletter</h3>
+      <p class="date-time">Current Date/Time: <span id="datetime"></span></p>
+    </div>
     <nav>
       <a href="#Events">Events</a>
       <a href="#Reminders">Reminders</a>
@@ -26,6 +29,13 @@
       font-size: 40px;
       margin-bottom: 0;
     }
+  }
+
+  .date-time {
+    font-size: 14px;
+    color: gray;
+    margin: 0;
+    text-align: left;
   }
 
   nav {
@@ -57,3 +67,18 @@
   }
 
 </style>
+
+<script>
+  function updateDateTime() {
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    const timeStr = now.toLocaleTimeString('en-US');
+    const el = document.getElementById('datetime');
+    if (el) {
+      el.innerHTML = dateStr + ' ' + timeStr;
+    }
+  }
+
+  updateDateTime();
+  setInterval(updateDateTime, 1000);
+</script>
