@@ -1,13 +1,13 @@
-<section>
+<section id="Contact">
   <header>
     <h4>Contact Us!</h4>
   </header>
-  <form>
-    <input type="text" placeholder="Name" required>
-    <input type="email" placeholder="E-mail" required>
-    <input class="message-box" type="text" placeholder="Message" required>
+  <form id="contact-form">
+    <input type="text" name="from_name" placeholder="Name" required>
+    <input type="email" name="from_email" placeholder="E-mail" required>
+    <textarea class="message-box" name="message" placeholder="Message" required></textarea>
+    <button type="submit">Submit</button>
   </form>
-  <button type="submit">Submit</button>
 </section>
 
 <style>
@@ -34,13 +34,74 @@
     display: flex;
     flex-direction: column;
     padding: 25px;
+    width: 500px;
 
-    input {
+    input, textarea {
       margin: 5px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      font-family: inherit;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #007bff;
+      outline: none;
     }
   }
 
+  .message-box {
+    height: 120px;
+    resize: vertical;
+  }
+
   button {
-    margin-bottom: 25px;
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100px;
+    align-self: center;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  @media (max-width: 768px) {
+    form {
+      padding: 15px;
+    }
+
+    input, textarea {
+      max-width: 350px;
+    }
   }
 </style>
+
+<script>
+  import emailjs from '@emailjs/browser';
+
+  // Initialize EmailJS with your public key from environment variables
+  emailjs.init(import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY);
+
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  if (form) {
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      emailjs.sendForm(import.meta.env.PUBLIC_EMAILJS_SERVICE_ID, import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID, form)
+        .then(function() {
+          alert('Message sent successfully!');
+          form.reset();
+        }, function(error) {
+          alert('Failed to send message: ' + error.text);
+        });
+    });
+  }
+</script>

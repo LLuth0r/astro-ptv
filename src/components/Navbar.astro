@@ -2,9 +2,9 @@
   <header>
     <h3>PTV Newsletter</h3>
     <nav>
-      <p id="Events">Events</p>
-      <p id="Reminders">Reminders</p>
-      <p id="Contact">Contact</p>
+      <a href="#Events">Events</a>
+      <a href="#Reminders">Reminders</a>
+      <a href="#Contact">Contact</a>
     </nav>
   </header>
 </section>
@@ -35,8 +35,24 @@
     align-items: flex-end;
     font-size: 24px;
 
-    p {
+    a {
       margin-bottom: 0;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+  }
+
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    nav {
+      width: auto;
+      flex-direction: column;
+      gap: 10px;
     }
   }
 

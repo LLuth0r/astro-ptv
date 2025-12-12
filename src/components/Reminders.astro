@@ -1,16 +1,16 @@
-<section>
+<section id="Reminders">
   <header>
     <h4>Reminders:</h4>
   </header>
   <article>
     <h5>Pets</h5>
-    <ul>
+    <ol>
       <li>Pets must be on a leash at all times</li>
       <li>Be considerate of your neighbors</li>
       <li>Each owner shall be responsible for collection and disposition of all fecal matter deposited by any pet maintained by such Co-Owner</li>
       <li>No dog which barks and can be heard on any frequent or continuing basis shall be kept in any Unit or on the Common Elements</li>
       <li>In the event of any violation, the Association may assess fines for such violation in accordance with the By-Laws & Rules / Regulations</li>
-    </ul>
+    </ol>
   </article>
   <article>
     <h5>Lamp Posts</h5>
@@ -72,7 +72,7 @@
     h5 {
       font-size: 20px;
       text-align: center;
-      font-weight: 400;
+      font-weight: 600;
       margin-bottom: 5px;
     }
 
@@ -82,14 +82,32 @@
     }
   }
 
-  ul {
+  ol {
     text-align: center;
-    list-style-type: none;
-    line-height: 2em;
+    list-style-position: inside;
+    line-height: 2.5em;
   }
 
   .trash-highlight {
     font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    header h4 {
+      font-size: 20px;
+    }
+
+    article {
+      width: 90%;
+    }
+
+    article h5 {
+      font-size: 18px;
+    }
+
+    ol {
+      line-height: 2em;
+    }
   }
 
 </style>
